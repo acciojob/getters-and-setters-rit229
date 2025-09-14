@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- the entire body must be written by student -->
+    <h1>School Management</h1>
+    <div id="info"></div>
 
     <script type="text/javascript" src="./script.js">
         class Person {
@@ -22,13 +23,21 @@
             }
 
             set age(age) {
-                this._age = age;
+                if (age < 0) {
+                    console.error("Age cannot be negative");
+                } else {
+                    this._age = age;
+                }
             }
         }
 
         class Student extends Person {
             study() {
                 console.log(`${this.name} is studying`);
+            }
+
+            showInfo() {
+                return `${this.name}, Age: ${this.age}`;
             }
         }
 
@@ -41,9 +50,11 @@
         // Example usage
         const student = new Student("Alice", 22);
         student.study();  // Output: Alice is studying
+        document.getElementById('info').innerHTML += student.showInfo() + '<br>';
 
         const teacher = new Teacher("Bob", 40);
         teacher.teach();  // Output: Bob is teaching
+        document.getElementById('info').innerHTML += `${teacher.name}, Age: ${teacher.age}`;
     </script>
 </body>
 </html>
