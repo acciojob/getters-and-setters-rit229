@@ -6,6 +6,8 @@
 <body>
     <h1>School Management</h1>
     <div id="info"></div>
+    <button id="addStudent">Add Student</button>
+    <button id="addTeacher">Add Teacher</button>
 
     <script type="text/javascript" src="./script.js">
         class Person {
@@ -47,14 +49,20 @@
             }
         }
 
-        // Example usage
-        const student = new Student("Alice", 22);
-        student.study();  // Output: Alice is studying
-        document.getElementById('info').innerHTML += student.showInfo() + '<br>';
+        function addStudent() {
+            const student = new Student("Alice", 22);
+            student.study();
+            document.getElementById('info').innerHTML += student.showInfo() + '<br>';
+        }
 
-        const teacher = new Teacher("Bob", 40);
-        teacher.teach();  // Output: Bob is teaching
-        document.getElementById('info').innerHTML += `${teacher.name}, Age: ${teacher.age}`;
+        function addTeacher() {
+            const teacher = new Teacher("Bob", 40);
+            teacher.teach();
+            document.getElementById('info').innerHTML += `${teacher.name}, Age: ${teacher.age}<br>`;
+        }
+
+        document.getElementById('addStudent').addEventListener('click', addStudent);
+        document.getElementById('addTeacher').addEventListener('click', addTeacher);
     </script>
 </body>
 </html>
