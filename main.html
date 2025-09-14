@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
+    <!-- the entire body must be written by student -->
+
     <script type="text/javascript" src="./script.js">
-		class Person {
-    constructor(name, age) {
-        this._name = name;
-        this._age = age;
-    }
+        class Person {
+            constructor(name, age) {
+                this._name = name;
+                this._age = age;
+            }
 
-    get name() {
-        return this._name;
-    }
+            get name() {
+                return this._name;
+            }
 
-    set age(age) {
-        this._age = age;
-    }
-}
+            get age() {
+                return this._age;
+            }
 
-class Student extends Person {
-    study() {
-        console.log(`${this.name} is studying`);
-    }
-}
+            set age(age) {
+                this._age = age;
+            }
+        }
 
-class Teacher extends Person {
-    teach() {
-        console.log(`${this.name} is teaching`);
-    }
-}
+        class Student extends Person {
+            study() {
+                console.log(`${this.name} is studying`);
+            }
+        }
 
-// Example usage
-const student = new Student("Alice", 22);
-student.study();  // Output: Alice is studying
+        class Teacher extends Person {
+            teach() {
+                console.log(`${this.name} is teaching`);
+            }
+        }
 
-const teacher = new Teacher("Bob", 40);
-teacher.teach();  // Output: Bob is teaching
-</script>
+        // Example usage
+        const student = new Student("Alice", 22);
+        student.study();  // Output: Alice is studying
 
+        const teacher = new Teacher("Bob", 40);
+        teacher.teach();  // Output: Bob is teaching
+    </script>
 </body>
-
 </html>
