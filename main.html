@@ -1,99 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>School Management</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
+<title>School Management</title>
+<style>
+ body {
+font-family: Arial, sans-serif;
+}
+
+h1 {
+color: #333;
+ }
+
+#info {
+margin-top: 20px;
+}
+
+button {
+margin: 5px;
+padding: 10px 15px;
+background-color: #007BFF;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
         }
 
-        h1 {
-            color: #333;
-        }
-
-        #info {
-            margin-top: 20px;
-        }
-
-        button {
-            margin: 5px;
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
+button:hover {
+background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>School Management</h1>
-    <div id="info"></div>
-    <button id="addStudent">Add Student</button>
-    <button id="addTeacher">Add Teacher</button>
+<h1>School Management</h1>
+<div id="info"></div>
+<button id="addStudent">Add Student</button>
+<button id="addTeacher">Add Teacher</button>
 
     <script type="text/javascript">
-        class Person {
-            constructor(name, age) {
-                this._name = name;
-                this._age = age >= 0 ? age : console.error("Age cannot be negative");
-            }
+class Person {
+constructor(name, age) {
+this._name = name;
+this._age = age >= 0 ? age : console.error("Age cannot be negative");
+ }
 
-            get name() {
-                return this._name;
-            }
+get name() {
+return this._name;
+}
 
-            get age() {
-                return this._age;
-            }
+get age() {
+return this._age;
+ }
 
-            set age(age) {
-                if (age < 0) {
-                    console.error("Age cannot be negative");
-                } else {
-                    this._age = age;
-                }
-            }
-        }
+set age(age) {
+if (age < 0) {
+console.error("Age cannot be negative");
+} else {
+this._age = age;
+ }
+}
+}
 
-        class Student extends Person {
-            study() {
-                console.log(`${this.name} is studying`);
-            }
+class Student extends Person {
+study() {
+console.log(`${this.name} is studying`);
+}
 
-            showInfo() {
-                return `${this.name}, Age: ${this.age}`;
-            }
-        }
+showInfo() {
+return `${this.name}, Age: ${this.age}`;
+ }
+ }
 
-        class Teacher extends Person {
-            teach() {
-                console.log(`${this.name} is teaching`);
-            }
-        }
+class Teacher extends Person {
+teach() {
+console.log(`${this.name} is teaching`);
+ }
+}
 
-        function addStudent() {
-            const name = prompt("Enter student name:");
-            const age = prompt("Enter student age:");
-            const student = new Student(name, parseInt(age));
-            student.study();
-            document.getElementById('info').innerHTML += student.showInfo() + '<br>';
-        }
+function addStudent() {
+const name = prompt("Enter student name:");
+const age = prompt("Enter student age:");
+const student = new Student(name, parseInt(age));
+student.study();
+document.getElementById('info').innerHTML += student.showInfo() + '<br>';
+}
 
-        function addTeacher() {
-            const name = prompt("Enter teacher name:");
-            const age = prompt("Enter teacher age:");
-            const teacher = new Teacher(name, parseInt(age));
-            teacher.teach();
-            document.getElementById('info').innerHTML += `${teacher.name}, Age: ${teacher.age}<br>`;
-        }
-
-        document.getElementById('addStudent').addEventListener('click', addStudent);
-        document.getElementById('addTeacher').addEventListener('click', addTeacher);
+function addTeacher() {
+const name = prompt("Enter teacher name:");
+const age = prompt("Enter teacher age:");
+const teacher = new Teacher(name, parseInt(age));
+teacher.teach();
+document.getElementById('info').innerHTML += `${teacher.name}, Age: ${teacher.age}<br>`;
+ }
+document.getElementById('addStudent').addEventListener('click', addStudent);
+document.getElementById('addTeacher').addEventListener('click', addTeacher);
     </script>
 </body>
 </html>
